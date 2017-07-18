@@ -244,6 +244,7 @@ class WidgetPlugin implements CallbackListener, TimerListener, Plugin {
 		//$backgroundQuad->addMapInfoFeature();
 
 		$map = $this->maniaControl->getMapManager()->getCurrentMap();
+		$mxmap = $this->maniaControl->getMapManager()->getCurrentMap();
 
 		$label = new Label_Text();
 		$frame->addChild($label);
@@ -272,14 +273,14 @@ class WidgetPlugin implements CallbackListener, TimerListener, Plugin {
 		$label->setTextColor('F7F');
 		$label->setSize($width - 5, $height);
 
-		if (isset($map->mx->pageurl)) {
+		if (isset($mxmap->mx->pageurl)) {
 			$quad = new Quad();
 			$frame->addChild($quad);
 			$quad->setImageFocusUrl($this->maniaControl->getManialinkManager()->getIconManager()->getIcon(IconManager::MX_ICON_MOVER));
 			$quad->setImageUrl($this->maniaControl->getManialinkManager()->getIconManager()->getIcon(IconManager::MX_ICON));
 			$quad->setPosition(-$width / 2 + 4, -1.5, -0.5);
 			$quad->setSize(4, 4);
-			$quad->setUrl($map->mx->pageurl);
+			$quad->setUrl($mxmap->mx->pageurl);
 		}
 
 		// Send manialink
